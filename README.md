@@ -8,7 +8,7 @@
 
 Bu proje, kontrol teorisindeki en yenilikçi yaklaşımlardan biri olan **Data-Enabled Predictive Control (DeePC)** algoritmasını interaktif bir web arayüzüyle sunarak herkes için erişilebilir kılmayı amaçlamaktadır. Kullanıcılar, fiziksel bir modele (diferansiyel denklemlere veya A, B, C, D matrislerine) ihtiyaç duymadan, yalnızca sistemin giriş-çıkış (I/O) verileriyle öngörülü bir kontrolcü tasarlayıp test edebilirler.
 
-Proje, **İstanbul Teknik Üniversitesi (İTÜ) Kontrol ve Otomasyon Mühendisliği** 3. sınıf öğrencisi [Bekir Samet Güzlek](https://www.linkedin.com/in/bekirsametguzlek/) tarafından, yapay zeka araçlarının desteğiyle hızlı prototipleme konsepti olarak **3 saatlik bir sprint** sonucunda geliştirilmiştir.
+Proje, **İstanbul Teknik Üniversitesi (İTÜ) Kontrol ve Otomasyon Mühendisliği** 3. sınıf öğrencisi [Bekir Samet Güzlek](https://www.linkedin.com/in/bekirsametguzlek/) tarafından, yapay zeka araçlarının desteğiyle hızlı prototipleme konsepti olarak kısa süreli bir çalışma sonucunda geliştirilmiştir.
 
 ---
 
@@ -102,7 +102,7 @@ $$
 
 - **Willems et al. (2005)** – Fundamental Lemma’nın temelini oluşturan başyapıt.
 - **Coulson, Lygeros & Dörfler (2019)** – DeePC algoritmasını literatüre kazandıran ana makale.
-- **Yapay Zeka Destekli Geliştirme** – Mimari tasarım, kod üretimi ve hata ayıklama süreçlerinde LLM araçları (Claude/Gemini) hızlandırıcı rol oynamıştır.
+- **Yapay Zeka Destekli Geliştirme** – Mimari tasarım, kod üretimi ve hata ayıklama süreçlerinde LLM araçları hızlandırıcı rol oynamıştır.
 
 ---
 

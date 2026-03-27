@@ -76,14 +76,14 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-        /* === FORCE DARK MODE + BUTON DÜZELTMESİ (KALICI ve TEMİZ ÇÖZÜM) === */
+    /* === FORCE DARK MODE === */
     [data-testid="stAppViewContainer"],
     [data-testid="stHeader"],
     .stApp {
         background-color: var(--clr-bg) !important;
     }
 
-    /* Genel widget container’ları (expander, selectbox, dataframe, markdown vb.) */
+    /* Genel widget container’ları */
     div[data-testid="stExpander"],
     div[data-baseweb="select"],
     div[data-testid="stNumberInput"],
@@ -122,6 +122,33 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
+    /* === AÇILIR MENÜ (DROPDOWN) VE INPUT DÜZELTMELERİ === */
+    /* Selectbox açılır listesinin dış çerçevesi ve liste arka planı */
+    div[data-baseweb="popover"] > div,
+    ul[data-baseweb="menu"] {
+        background-color: var(--clr-surface) !important;
+        border: 1px solid var(--clr-border) !important;
+    }
+    
+    /* Liste elemanları (seçenekler) */
+    ul[data-baseweb="menu"] li[role="option"] {
+        color: var(--clr-text) !important;
+        background-color: transparent !important;
+    }
+    
+    /* Seçeneklerin üzerine gelince (hover) ve seçili olan (selected) */
+    ul[data-baseweb="menu"] li[role="option"]:hover,
+    ul[data-baseweb="menu"] li[aria-selected="true"] {
+        background-color: var(--clr-primary2) !important;
+        color: #ffffff !important;
+    }
+
+    /* Numara Girişleri (Number Input) Arka Planı ve Yazı Rengi */
+    [data-testid="stNumberInput"] input {
+        background-color: var(--clr-surface) !important;
+        color: var(--clr-text) !important;
+    }
+
     /* === BUTONLARIN KESİN DÜZELTİLMESİ === */
     .stButton > button {
         background-color: var(--clr-surface) !important;
@@ -141,7 +168,6 @@ st.markdown(
         background-color: var(--clr-primary2) !important;
         box-shadow: 0 0 12px rgba(47,129,247,0.4) !important;
     }
-    .stApp { background: var(--clr-bg) !important; }
 
     /* ── Hide Streamlit chrome ── */
     #MainMenu, footer, header { visibility: hidden; }
