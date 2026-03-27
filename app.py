@@ -122,7 +122,7 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-    /* === BUTONLARIN KESİN DÜZELTİLMESİ (Beyaz sorununu çözer) === */
+    /* === BUTONLARIN KESİN DÜZELTİLMESİ === */
     .stButton > button {
         background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
@@ -192,15 +192,6 @@ st.markdown(
         border-radius: 6px !important;
         transition: all 0.18s ease !important;
         border: 1px solid var(--clr-border) !important;
-    }
-    .stButton > button[kind="primary"] {
-        background: var(--clr-primary) !important;
-        color: #fff !important;
-        border-color: var(--clr-primary) !important;
-    }
-    .stButton > button[kind="primary"]:hover {
-        background: var(--clr-primary2) !important;
-        box-shadow: 0 0 12px rgba(47,129,247,0.4) !important;
     }
 
     /* ── Sliders ── */
@@ -378,7 +369,8 @@ st.markdown(
         text-align: center;
         font-family: var(--font-mono);
     }
-        /* === TAB BAŞLIKLARI: aktif ve pasif tüm yazıları beyaz yap === */
+
+    /* === TAB BAŞLIKLARI: aktif ve pasif tüm yazıları beyaz yap === */
     .stTabs [data-baseweb="tab"] {
         color: #ffffff !important;
         background-color: transparent !important;
@@ -394,10 +386,16 @@ st.markdown(
         color: #ffffff !important;
     }
 
-    /* === TÜM BUTON METİNLERİNİN OKUNABİLİR OLMASI İÇİN (siyah olmasını engelle) === */
+    /* === TÜM BUTON METİNLERİNİN OKUNABİLİR OLMASI İÇİN === */
     .stButton > button,
     .stButton > button * {
         color: var(--clr-text) !important;
+    }
+    
+    /* === HATA ÇÖZÜMÜ: BUTON VE TAB İÇİNDEKİ YAZILARIN ARKASINDAKİ SİYAH KUTUYU YOK ET === */
+    .stButton > button *,
+    .stTabs [data-baseweb="tab"] * {
+        background-color: transparent !important;
     }
     
     </style>
