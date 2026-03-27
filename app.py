@@ -76,24 +76,49 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-    /* ── Streamlit Tema Ezme (Light/Dark Çakışması İçin) ── */
-    [data-testid="stExpander"] {
-        background-color: var(--clr-surface) !important;
-        border: 1px solid var(--clr-border) !important;
+        /* === FORCE DARK MODE FOR ALL STREAMLIT WIDGETS (KALICI ÇÖZÜM) === */
+    [data-testid="stAppViewContainer"] {
+        background-color: var(--clr-bg) !important;
     }
-    
-    .stSelectbox div[data-baseweb="select"] {
-        background-color: var(--clr-surface) !important;
+    [data-testid="stHeader"] {
+        background-color: var(--clr-bg) !important;
     }
-
-    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+    .stApp {
+        background-color: var(--clr-bg) !important;
+    }
+    /* Tüm widget container’ları ve içerikleri */
+    div[data-testid="stExpander"],
+    div[data-baseweb="select"],
+    div[data-testid="stNumberInput"],
+    div[data-testid="stSlider"],
+    div[data-testid="stDataFrame"],
+    .stMarkdown > div,
+    .stTable,
+    .stDataFrame,
+    div[data-testid="stMarkdownContainer"] {
+        background-color: var(--clr-surface) !important;
+        color: var(--clr-text) !important;
+        border-color: var(--clr-border) !important;
+    }
+    /* Input iç yüzeyleri (selectbox, number_input, slider) */
+    div[data-baseweb="select"] > div,
+    div[data-testid="stNumberInput"] > div > div,
+    div[data-testid="stSlider"] > div > div > div {
+        background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
     }
-
-    /* Sidebar içindeki tüm widget başlıklarını ve yazılarını beyaz yap */
-    [data-testid="stSidebar"] .stMarkdown, 
-    [data-testid="stSidebar"] label, 
-    [data-testid="stSidebar"] .stSlider {
+    /* Tüm metin ve label’lar */
+    label, .stCaption, p, span, div, .stMarkdown {
+        color: var(--clr-text) !important;
+    }
+    /* Sidebar tam koruma */
+    [data-testid="stSidebar"] * {
+        color: var(--clr-text) !important;
+    }
+    /* Expander header ve content ekstra */
+    [data-testid="stExpander"] summary,
+    [data-testid="stExpander"] div[role="region"] {
+        background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
     }
     .stApp { background: var(--clr-bg) !important; }
@@ -333,37 +358,7 @@ st.markdown(
         text-align: center;
         font-family: var(--font-mono);
     }
-        /* ── Sidebar içindeki expander ve input bileşenlerini koyu tema yap ── */
-    [data-testid="stSidebar"] .streamlit-expanderHeader,
-    [data-testid="stSidebar"] .streamlit-expanderContent {
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
-    }
-    [data-testid="stSidebar"] .streamlit-expanderHeader:hover {
-        background-color: var(--clr-primary2) !important;
-        color: white !important;
-    }
-    [data-testid="stSidebar"] div[data-testid="stNumberInput"] input {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
-    }
-    [data-testid="stSidebar"] div[data-baseweb="select"] {
-        background-color: var(--clr-bg) !important;
-    }
-    [data-testid="stSidebar"] div[data-baseweb="select"] * {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
-    }
-    [data-testid="stSidebar"] .stSlider label {
-        color: var(--clr-text) !important;
-    }
-    [data-testid="stSidebar"] .stMarkdown, 
-    [data-testid="stSidebar"] .stCaption,
-    [data-testid="stSidebar"] .stCaptionText {
-        color: var(--clr-text) !important;
-    }
+    
     </style>
     """,
     unsafe_allow_html=True,
