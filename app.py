@@ -48,204 +48,121 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
-
-    /* ── Root variables (dark theme) ── */
-    :root {
-        --clr-bg:        #0d1117;
-        --clr-surface:   #161b22;
-        --clr-border:    #30363d;
-        --clr-primary:   #2f81f7;
-        --clr-primary2:  #1f6feb;
-        --clr-green:     #3fb950;
-        --clr-orange:    #e3b341;
-        --clr-red:       #f85149;
-        --clr-purple:    #a371f7;
-        --clr-text:      #e6edf3;
-        --clr-muted:     #8b949e;
-        --font-main:     'IBM Plex Sans', sans-serif;
-        --font-mono:     'JetBrains Mono', monospace;
-        --font-serif:    'IBM Plex Serif', serif;
-        --radius:        8px;
-        --shadow:        0 4px 24px rgba(0,0,0,0.4);
-    }
-
-    /* Global reset – dark background everywhere */
+    /* Temel arka plan ve yazı rengi */
     html, body, [class*="css"], .stApp, .stApp > div {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
-        font-family: var(--font-main) !important;
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
+        font-family: 'IBM Plex Sans', sans-serif !important;
     }
 
-    /* Hide Streamlit chrome */
-    #MainMenu, footer, header { visibility: hidden; }
-
-    .block-container {
-        padding-top: 1.5rem !important;
-        padding-bottom: 2rem !important;
-        max-width: 1400px !important;
-    }
-
-    /* ── Sidebar ── */
+    /* Sidebar arkaplanı */
     [data-testid="stSidebar"] {
-        background: var(--clr-surface) !important;
-        border-right: 1px solid var(--clr-border) !important;
+        background-color: #161b22 !important;
+        border-right: 1px solid #30363d !important;
     }
 
-    /* Force all sidebar children to have dark background */
+    /* Sidebar içindeki tüm widget'ların arkaplanını koyu yap */
     [data-testid="stSidebar"] * {
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
+        background-color: #161b22 !important;
+        color: #e6edf3 !important;
+        border-color: #30363d !important;
     }
 
-    /* Buttons inside sidebar */
-    [data-testid="stSidebar"] .stButton button {
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
-    }
-    [data-testid="stSidebar"] .stButton button:hover {
-        background-color: var(--clr-primary2) !important;
-        color: white !important;
+    /* Expander başlık ve içerik */
+    .streamlit-expanderHeader, .streamlit-expanderContent {
+        background-color: #161b22 !important;
+        color: #e6edf3 !important;
+        border-color: #30363d !important;
     }
 
-    /* Expanders */
-    [data-testid="stSidebar"] .streamlit-expanderHeader,
-    [data-testid="stSidebar"] .streamlit-expanderContent {
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
+    /* Slider */
+    .stSlider label, .stSlider .stMarkdown {
+        color: #e6edf3 !important;
     }
-    [data-testid="stSidebar"] .streamlit-expanderHeader:hover {
-        background-color: var(--clr-primary2) !important;
-    }
-
-    /* Sliders */
-    [data-testid="stSidebar"] div[data-testid="stSlider"] {
-        background-color: var(--clr-surface) !important;
-    }
-    [data-testid="stSidebar"] div[data-testid="stSlider"] > div > div > div {
-        background-color: var(--clr-primary) !important;
-    }
-    /* Slider labels and values */
-    [data-testid="stSidebar"] .stSlider label,
-    [data-testid="stSidebar"] .stSlider .stMarkdown {
-        color: var(--clr-text) !important;
+    [data-testid="stSlider"] > div > div > div > div {
+        background-color: #2f81f7 !important;
     }
 
     /* Number input */
-    [data-testid="stSidebar"] div[data-testid="stNumberInput"] input {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
-        border-color: var(--clr-border) !important;
+    [data-testid="stNumberInput"] input {
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
+        border-color: #30363d !important;
     }
 
     /* Selectbox */
-    [data-testid="stSidebar"] div[data-baseweb="select"] {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
+    div[data-baseweb="select"] {
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
     }
-    [data-testid="stSidebar"] div[data-baseweb="select"] * {
-        background-color: var(--clr-bg) !important;
-        color: var(--clr-text) !important;
-    }
-
-    /* Markdown inside sidebar */
-    [data-testid="stSidebar"] .stMarkdown {
-        color: var(--clr-text) !important;
+    div[data-baseweb="select"] * {
+        background-color: #0d1117 !important;
+        color: #e6edf3 !important;
     }
 
-    /* Captions and small text */
-    [data-testid="stSidebar"] .stCaption,
-    [data-testid="stSidebar"] .stCaptionText {
-        color: var(--clr-muted) !important;
+    /* Butonlar */
+    .stButton button {
+        background-color: #161b22 !important;
+        color: #e6edf3 !important;
+        border-color: #30363d !important;
+    }
+    .stButton button[kind="primary"] {
+        background-color: #2f81f7 !important;
+        color: white !important;
+        border-color: #2f81f7 !important;
+    }
+    .stButton button[kind="primary"]:hover {
+        background-color: #1f6feb !important;
     }
 
-    /* Tabs (not in sidebar but general) */
+    /* Sekmeler (tabs) */
     .stTabs [data-baseweb="tab-list"] {
-        background: var(--clr-surface) !important;
-        border: 1px solid var(--clr-border) !important;
+        background-color: #161b22 !important;
+        border: 1px solid #30363d !important;
     }
     .stTabs [data-baseweb="tab"] {
-        background: transparent !important;
-        color: var(--clr-muted) !important;
+        color: #8b949e !important;
     }
     .stTabs [aria-selected="true"] {
-        background: var(--clr-primary2) !important;
-        color: #ffffff !important;
-    }
-
-    /* Buttons general */
-    .stButton > button {
-        font-family: var(--font-main) !important;
-        font-weight: 600 !important;
-        border-radius: 6px !important;
-        transition: all 0.18s ease !important;
-        border: 1px solid var(--clr-border) !important;
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-    }
-    .stButton > button[kind="primary"] {
-        background: var(--clr-primary) !important;
-        color: #fff !important;
-        border-color: var(--clr-primary) !important;
-    }
-    .stButton > button[kind="primary"]:hover {
-        background: var(--clr-primary2) !important;
-    }
-
-    /* Metric cards (already defined) */
-    .metric-card {
-        background: var(--clr-surface);
-        border: 1px solid var(--clr-border);
-        border-radius: var(--radius);
-        padding: 1rem 1.25rem;
-        text-align: center;
-    }
-    .metric-label {
-        color: var(--clr-muted);
-    }
-    .metric-value {
-        font-family: var(--font-mono);
-        color: var(--clr-text);
-    }
-    .metric-value.green  { color: var(--clr-green); }
-    .metric-value.orange { color: var(--clr-orange); }
-    .metric-value.red    { color: var(--clr-red); }
-    .metric-value.blue   { color: var(--clr-primary); }
-
-    /* Info/warning boxes */
-    .info-box {
-        background: rgba(47,129,247,0.08);
-        border-left: 3px solid var(--clr-primary);
-        color: #aac8f5;
-    }
-    .warn-box {
-        background: rgba(227,179,65,0.08);
-        border-left: 3px solid var(--clr-orange);
-        color: #e3c879;
-    }
-    .success-box {
-        background: rgba(63,185,80,0.08);
-        border-left: 3px solid var(--clr-green);
-        color: #82d996;
-    }
-    .error-box {
-        background: rgba(248,81,73,0.1);
-        border-left: 3px solid var(--clr-red);
-        color: #ff9492;
+        background-color: #1f6feb !important;
+        color: white !important;
     }
 
     /* Progress bar */
     .stProgress > div > div {
-        background: var(--clr-primary) !important;
+        background-color: #2f81f7 !important;
     }
 
-    /* Footer */
-    .deepc-footer {
-        color: var(--clr-muted);
-        border-top: 1px solid var(--clr-border);
+    /* Footer, header, menü gizleme (opsiyonel) */
+    #MainMenu, footer, header {
+        visibility: hidden !important;
+    }
+
+    /* Diğer yardımcı stiller (kutular, metrikler vb.) */
+    .metric-card {
+        background-color: #161b22;
+        border: 1px solid #30363d;
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        text-align: center;
+    }
+    .metric-label {
+        color: #8b949e;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+    }
+    .metric-value {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 1.6rem;
+        color: #e6edf3;
+    }
+    .info-box, .warn-box, .success-box, .error-box {
+        background: rgba(47,129,247,0.08);
+        border-left: 3px solid #2f81f7;
+        border-radius: 0 8px 8px 0;
+        padding: 0.75rem 1rem;
+        margin: 0.5rem 0;
+        color: #aac8f5;
     }
     </style>
     """,
