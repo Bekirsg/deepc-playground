@@ -76,6 +76,26 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
+    /* ── Streamlit Tema Ezme (Light/Dark Çakışması İçin) ── */
+    [data-testid="stExpander"] {
+        background-color: var(--clr-surface) !important;
+        border: 1px solid var(--clr-border) !important;
+    }
+    
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: var(--clr-surface) !important;
+    }
+
+    [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
+        color: var(--clr-text) !important;
+    }
+
+    /* Sidebar içindeki tüm widget başlıklarını ve yazılarını beyaz yap */
+    [data-testid="stSidebar"] .stMarkdown, 
+    [data-testid="stSidebar"] label, 
+    [data-testid="stSidebar"] .stSlider {
+        color: var(--clr-text) !important;
+    }
     .stApp { background: var(--clr-bg) !important; }
 
     /* ── Hide Streamlit chrome ── */
