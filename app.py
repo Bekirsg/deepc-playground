@@ -378,6 +378,26 @@ st.markdown(
         text-align: center;
         font-family: var(--font-mono);
     }
+        /* === TAB BAŞLIKLARI (aktif olmayanların yazı rengi beyaz) === */
+    .stTabs [data-baseweb="tab"]:not([aria-selected="true"]) {
+        color: var(--clr-text) !important;
+        background-color: transparent !important;
+    }
+
+    /* === TÜM BUTONLARIN İÇİNDEKİ METİNLERİN RENGİNİ ZORLA (siyah kalmaması için) === */
+    .stButton > button,
+    .stButton > button * {
+        color: var(--clr-text) !important;
+    }
+    .stButton > button[kind="primary"],
+    .stButton > button[kind="primary"] * {
+        color: #ffffff !important;
+    }
+
+    /* === BUTONUN BULUNDUĞU KAPSAYICI ALANIN ARKAPLANI (isteğe bağlı) === */
+    div[data-testid="stButton"] {
+        background-color: transparent !important;
+    }
     
     </style>
     """,
