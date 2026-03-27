@@ -76,14 +76,14 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-    /* === FORCE DARK MODE === */
+        /* === FORCE DARK MODE + BUTON DÜZELTMESİ (KALICI ve TEMİZ ÇÖZÜM) === */
     [data-testid="stAppViewContainer"],
     [data-testid="stHeader"],
     .stApp {
         background-color: var(--clr-bg) !important;
     }
 
-    /* Genel widget container’ları */
+    /* Genel widget container’ları (expander, selectbox, dataframe, markdown vb.) */
     div[data-testid="stExpander"],
     div[data-baseweb="select"],
     div[data-testid="stNumberInput"],
@@ -122,34 +122,7 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-    /* === AÇILIR MENÜ (DROPDOWN) VE INPUT DÜZELTMELERİ === */
-    /* Selectbox açılır listesinin dış çerçevesi ve liste arka planı */
-    div[data-baseweb="popover"] > div,
-    ul[data-baseweb="menu"] {
-        background-color: var(--clr-surface) !important;
-        border: 1px solid var(--clr-border) !important;
-    }
-    
-    /* Liste elemanları (seçenekler) */
-    ul[data-baseweb="menu"] li[role="option"] {
-        color: var(--clr-text) !important;
-        background-color: transparent !important;
-    }
-    
-    /* Seçeneklerin üzerine gelince (hover) ve seçili olan (selected) */
-    ul[data-baseweb="menu"] li[role="option"]:hover,
-    ul[data-baseweb="menu"] li[aria-selected="true"] {
-        background-color: var(--clr-primary2) !important;
-        color: #ffffff !important;
-    }
-
-    /* Numara Girişleri (Number Input) Arka Planı ve Yazı Rengi */
-    [data-testid="stNumberInput"] input {
-        background-color: var(--clr-surface) !important;
-        color: var(--clr-text) !important;
-    }
-
-    /* === BUTONLARIN KESİN DÜZELTİLMESİ === */
+    /* === BUTONLARIN KESİN DÜZELTİLMESİ (Beyaz sorununu çözer) === */
     .stButton > button {
         background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
@@ -168,6 +141,7 @@ st.markdown(
         background-color: var(--clr-primary2) !important;
         box-shadow: 0 0 12px rgba(47,129,247,0.4) !important;
     }
+    .stApp { background: var(--clr-bg) !important; }
 
     /* ── Hide Streamlit chrome ── */
     #MainMenu, footer, header { visibility: hidden; }
@@ -218,6 +192,15 @@ st.markdown(
         border-radius: 6px !important;
         transition: all 0.18s ease !important;
         border: 1px solid var(--clr-border) !important;
+    }
+    .stButton > button[kind="primary"] {
+        background: var(--clr-primary) !important;
+        color: #fff !important;
+        border-color: var(--clr-primary) !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background: var(--clr-primary2) !important;
+        box-shadow: 0 0 12px rgba(47,129,247,0.4) !important;
     }
 
     /* ── Sliders ── */
@@ -395,35 +378,44 @@ st.markdown(
         text-align: center;
         font-family: var(--font-mono);
     }
+    
+    /* === ULTRA FINAL UI FIXES (Siyah Metin Sorunlarını Kökten Çözer) === */
 
-    /* === TAB BAŞLIKLARI: aktif ve pasif tüm yazıları beyaz yap === */
-    .stTabs [data-baseweb="tab"] {
-        color: #ffffff !important;
-        background-color: transparent !important;
+    /* 1. Tab Başlık Metinleri (image_1.png) - Zorla Beyaz Yap */
+    .stTabs [data-baseweb="tab"] p, 
+    .stTabs [data-baseweb="tab"] span {
+        color: var(--clr-muted) !important; /* Pasif tab metinleri */
     }
-    .stTabs [aria-selected="true"] {
-        background-color: var(--clr-primary2) !important;
-        color: #ffffff !important;
-    }
-
-    /* === BİRİNCİL BUTONLARIN (primary) METNİNİ KESİN BEYAZ YAP === */
-    .stButton > button[kind="primary"],
-    .stButton > button[kind="primary"] * {
-        color: #ffffff !important;
+    .stTabs [aria-selected="true"] p, 
+    .stTabs [aria-selected="true"] span {
+        color: #ffffff !important; /* Aktif tab metinleri */
     }
 
-    /* === TÜM BUTON METİNLERİNİN OKUNABİLİR OLMASI İÇİN === */
-    .stButton > button,
-    .stButton > button * {
+    /* 2. Primary Button Metin Rengi (image_1.png) - Siyahı Beyaz Yap */
+    .stButton > button[kind="primary"] span, 
+    .stButton > button[kind="primary"] div {
+        color: #ffffff !important;
+    }
+
+    /* 3. Selectbox (Dropdown) Seçenek Metin Rengi (image_2.png, image_3.png) - Beyaz Yap */
+    ul[data-baseweb="menu"] li[role="option"] div, 
+    ul[data-baseweb="menu"] li[role="option"] span {
         color: var(--clr-text) !important;
     }
-    
-    /* === HATA ÇÖZÜMÜ: BUTON VE TAB İÇİNDEKİ YAZILARIN ARKASINDAKİ SİYAH KUTUYU YOK ET === */
-    .stButton > button *,
-    .stTabs [data-baseweb="tab"] * {
-        background-color: transparent !important;
+    /* Üzerine gelince (hover) metin beyaz kalsın */
+    ul[data-baseweb="menu"] li[role="option"]:hover div,
+    ul[data-baseweb="menu"] li[role="option"]:hover span {
+        color: #ffffff !important;
     }
-    
+
+    /* 4. DataFrame ve Table (Oturum Özeti) Değer Metin Renkleri (image_4.png) */
+    [data-testid="stDataFrame"] *, 
+    [data-testid="stTable"] *, 
+    [data-testid="stMarkdownContainer"] table *, 
+    [data-testid="stMarkdownContainer"] span {
+        color: var(--clr-text) !important;
+    }
+
     </style>
     """,
     unsafe_allow_html=True,
