@@ -378,25 +378,26 @@ st.markdown(
         text-align: center;
         font-family: var(--font-mono);
     }
-        /* === TAB BAŞLIKLARI (aktif olmayanların yazı rengi beyaz) === */
-    .stTabs [data-baseweb="tab"]:not([aria-selected="true"]) {
-        color: var(--clr-text) !important;
+        /* === TAB BAŞLIKLARI: aktif ve pasif tüm yazıları beyaz yap === */
+    .stTabs [data-baseweb="tab"] {
+        color: #ffffff !important;
         background-color: transparent !important;
     }
-
-    /* === TÜM BUTONLARIN İÇİNDEKİ METİNLERİN RENGİNİ ZORLA (siyah kalmaması için) === */
-    .stButton > button,
-    .stButton > button * {
-        color: var(--clr-text) !important;
+    .stTabs [aria-selected="true"] {
+        background-color: var(--clr-primary2) !important;
+        color: #ffffff !important;
     }
+
+    /* === BİRİNCİL BUTONLARIN (primary) METNİNİ KESİN BEYAZ YAP === */
     .stButton > button[kind="primary"],
     .stButton > button[kind="primary"] * {
         color: #ffffff !important;
     }
 
-    /* === BUTONUN BULUNDUĞU KAPSAYICI ALANIN ARKAPLANI (isteğe bağlı) === */
-    div[data-testid="stButton"] {
-        background-color: transparent !important;
+    /* === TÜM BUTON METİNLERİNİN OKUNABİLİR OLMASI İÇİN (siyah olmasını engelle) === */
+    .stButton > button,
+    .stButton > button * {
+        color: var(--clr-text) !important;
     }
     
     </style>
