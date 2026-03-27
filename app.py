@@ -76,17 +76,14 @@ st.markdown(
         color: var(--clr-text) !important;
     }
 
-        /* === FORCE DARK MODE FOR ALL STREAMLIT WIDGETS (KALICI ÇÖZÜM) === */
-    [data-testid="stAppViewContainer"] {
-        background-color: var(--clr-bg) !important;
-    }
-    [data-testid="stHeader"] {
-        background-color: var(--clr-bg) !important;
-    }
+        /* === FORCE DARK MODE + BUTON DÜZELTMESİ (KALICI ve TEMİZ ÇÖZÜM) === */
+    [data-testid="stAppViewContainer"],
+    [data-testid="stHeader"],
     .stApp {
         background-color: var(--clr-bg) !important;
     }
-    /* Tüm widget container’ları ve içerikleri */
+
+    /* Genel widget container’ları (expander, selectbox, dataframe, markdown vb.) */
     div[data-testid="stExpander"],
     div[data-baseweb="select"],
     div[data-testid="stNumberInput"],
@@ -94,32 +91,55 @@ st.markdown(
     div[data-testid="stDataFrame"],
     .stMarkdown > div,
     .stTable,
-    .stDataFrame,
     div[data-testid="stMarkdownContainer"] {
         background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
         border-color: var(--clr-border) !important;
     }
-    /* Input iç yüzeyleri (selectbox, number_input, slider) */
+
+    /* Input iç yüzeyleri */
     div[data-baseweb="select"] > div,
     div[data-testid="stNumberInput"] > div > div,
     div[data-testid="stSlider"] > div > div > div {
         background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
     }
-    /* Tüm metin ve label’lar */
+
+    /* Tüm metinler */
     label, .stCaption, p, span, div, .stMarkdown {
         color: var(--clr-text) !important;
     }
+
     /* Sidebar tam koruma */
     [data-testid="stSidebar"] * {
         color: var(--clr-text) !important;
     }
-    /* Expander header ve content ekstra */
+
+    /* Expander özel */
     [data-testid="stExpander"] summary,
     [data-testid="stExpander"] div[role="region"] {
         background-color: var(--clr-surface) !important;
         color: var(--clr-text) !important;
+    }
+
+    /* === BUTONLARIN KESİN DÜZELTİLMESİ (Beyaz sorununu çözer) === */
+    .stButton > button {
+        background-color: var(--clr-surface) !important;
+        color: var(--clr-text) !important;
+        border: 1px solid var(--clr-border) !important;
+    }
+    .stButton > button[kind="primary"] {
+        background-color: var(--clr-primary) !important;
+        color: #ffffff !important;
+        border-color: var(--clr-primary) !important;
+    }
+    .stButton > button:hover:not([kind="primary"]) {
+        background-color: #21262d !important;
+        color: var(--clr-text) !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        background-color: var(--clr-primary2) !important;
+        box-shadow: 0 0 12px rgba(47,129,247,0.4) !important;
     }
     .stApp { background: var(--clr-bg) !important; }
 
