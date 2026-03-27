@@ -45,7 +45,7 @@ st.set_page_config(
 # CUSTOM CSS
 # ═══════════════════════════════════════════════════════════════
 
-[st.markdown(
+st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
@@ -336,8 +336,7 @@ st.set_page_config(
     </style>
     """,
     unsafe_allow_html=True,
-)]
-
+)
 # ═══════════════════════════════════════════════════════════════
 # PLOTLY THEME
 # ═══════════════════════════════════════════════════════════════
